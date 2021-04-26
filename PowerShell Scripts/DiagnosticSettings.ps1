@@ -1,6 +1,6 @@
-param([string] $workspaceId)
-param([string] $azDiagName)
-param([string] $ResourceId)
+[string] [Parameter(Mandatory=$false)] $workspaceId,
+[string] [Parameter(Mandatory=$false)] $azDiagName,
+[string] [Parameter(Mandatory=$false)] $ResourceId
 
 $azResources = Get-AzResource -ResourceType 'Microsoft.Web/Sites' -ResourceId $ResourceId
 
