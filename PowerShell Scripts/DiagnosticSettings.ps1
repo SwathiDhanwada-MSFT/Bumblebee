@@ -15,7 +15,7 @@ foreach ($azResource in $azResources) {
         foreach ($azDiag in $azDiagSettings) {
             If (!($azDiag.WorkspaceId -eq $workspaceId -and $azDiag.Name -eq $azDiagName)) {
                 Remove-AzDiagnosticSetting -ResourceId $resourceId -Name $azDiag.Name
-                Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Name {$azDiagName -Enabled $true
+                Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Name $azDiagName -Enabled $true
             }         
         }
     }
