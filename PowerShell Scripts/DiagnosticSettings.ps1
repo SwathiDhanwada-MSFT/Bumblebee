@@ -1,8 +1,8 @@
 [string] [Parameter(Mandatory=$false)] $workspaceId,
 [string] [Parameter(Mandatory=$false)] $azDiagName,
-[string] [Parameter(Mandatory=$false)] $ResourceId
+[string] [Parameter(Mandatory=$false)] $resourceId
 
-$azResources = Get-AzResource -ResourceType 'Microsoft.Web/Sites' -ResourceId $ResourceId
+$azResources = Get-AzResource -ResourceType 'Microsoft.Web/Sites' -ResourceId $resourceId
 
 foreach ($azResource in $azResources) {
     $resourceId     = $azResource.ResourceId
