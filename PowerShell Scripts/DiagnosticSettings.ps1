@@ -2,7 +2,7 @@
 [string] [Parameter(Mandatory=$false)] $azDiagName,
 [string] [Parameter(Mandatory=$false)] $resourceId
 
-$azResources = Get-AzResource -ResourceId $resourceId
+$azResources = Get-AzResource -ResourceType 'Microsoft.Web/sites'
 
 foreach ($azResource in $azResources) {
     $resourceId     = $azResource.ResourceId
