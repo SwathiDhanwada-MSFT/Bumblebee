@@ -11,7 +11,7 @@ foreach ($azResource in $azResources) {
     $azDiagSettings = Get-AzDiagnosticSetting -ResourceId $resourceId 
     Write-Output $azDiagSettings
 
-    if($azDiagSettings -eq $null){
+    if([string]::IsNullOrEmpty($azDiagSettings)){
         Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Name $azDiagName -Enabled $true
     }
     else{
