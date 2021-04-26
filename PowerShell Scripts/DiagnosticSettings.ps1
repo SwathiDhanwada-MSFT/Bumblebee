@@ -3,9 +3,13 @@
 
 $azResources = Get-AzResource -ResourceType 'Microsoft.Web/sites'
 
+Write-Output $azResources
+
 foreach ($azResource in $azResources) {
     $resourceId     = $azResource.ResourceId
+    Write-Output $resourceId
     $azDiagSettings = Get-AzDiagnosticSetting -ResourceId $resourceId 
+    Write-Output $azDiagSettings
 
     if($azDiagSettings -eq $null){
         Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Name $azDiagName -Enabled $true
