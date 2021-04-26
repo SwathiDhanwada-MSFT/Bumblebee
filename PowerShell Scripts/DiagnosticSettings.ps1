@@ -6,7 +6,7 @@ $azResources = Get-AzResource -ResourceType 'Microsoft.Web/Sites' -ResourceId $R
 
 foreach ($azResource in $azResources) {
     $resourceId     = $azResource.ResourceId
-    $azDiagSettings = Get-AzDiagnosticSetting -ResourceId $resourceId | Where-Object {$_.Id -ne $NULL}
+    $azDiagSettings = Get-AzDiagnosticSetting -ResourceId $resourceId 
 
     if($azDiagSettings -eq $null){
         Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Name $azDiagName -Enabled $true
